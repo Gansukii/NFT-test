@@ -1,7 +1,12 @@
 [
   {
-    "metadataURI": "https://ipfs.io/ipfs/Qme9SNtho8BxbwCjZaTusTfpfEgaJAjgkooPrVehNXwkBw",
+    "metadataURI": "https://ipfs.io/ipfs/QmcHA1eN1fajJfJQWdSkNvQhy1R6QhgU1YpBsPnW972GQi",
     "image": "https://ipfs.io/ipfs/QmSDdhFy585oJGcGkKkK2fGHexxSSzNJDp1MmwCkkFpijE",
     "name": "Orochimaru"
+  },
+  {
+    "metadataURI": "https://ipfs.io/ipfs/QmSTLt1AfiGmhDeGJ5DTBwNfvohHgEW3yhVM5Xkaw1v2w2",
+    "image": "https://ipfs.io/ipfs/QmVsjdHagWXrLREhZA31A5X4hz5795HK1W4yGX6cj5KKJD",
+    "name": "Might Guy"
   }
 ]

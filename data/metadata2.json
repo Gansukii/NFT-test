@@ -1,12 +1,19 @@
 {
-    "attributes": [
-      {
-        "trait_type": "Eye",
-        "value": "Snek"
-      }
-    ],
-    "description": "Pssssssssssssssfff!",
-    "image": "https://ipfs.io/ipfs/QmSDdhFy585oJGcGkKkK2fGHexxSSzNJDp1MmwCkkFpijE",
-    "name": "Orochimaru"
-  }
-  
+  "attributes": [
+    {
+      "trait_type": "Eye",
+      "value": "Snek"
+    },
+    {
+      "trait_type": "Strength",
+      "value": 60
+    },
+    {
+      "trait_type": "HP",
+      "value": 200
+    }
+  ],
+  "description": "Pssssssssssssssfff!",
+  "image": "https://ipfs.io/ipfs/QmSDdhFy585oJGcGkKkK2fGHexxSSzNJDp1MmwCkkFpijE",
+  "name": "Orochimaru"
+}

@@ -1,0 +1,21 @@
+{
+  "attributes": [
+    {
+      "trait_type": "Eye",
+      "value": "Flaming red"
+    },
+    {
+      "trait_type": "Strength",
+      "value": 80
+    },
+    {
+      "trait_type": "HP",
+      "value": 150
+    }
+  ],
+  "description": "Mightooooo Guyyyyyyyy!",
+  "image": "https://ipfs.io/ipfs/QmVsjdHagWXrLREhZA31A5X4hz5795HK1W4yGX6cj5KKJD",
+  "name": "Might Guy",
+  "attack": 80,
+  "hp": 150
+}

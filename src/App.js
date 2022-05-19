@@ -1,21 +1,21 @@
-import { useEffect, useState } from "react";
-import "./App.css";
-import MainMint from "./MainMint";
-import Navbar from "./Navbar";
+import { useEffect, useState, React } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Main, Battle } from "./views";
+import UserContext from "./data/userContext";
 
 function App() {
   const [accounts, setAccounts] = useState([]);
-  useEffect(() => {
-    const storageAccount = localStorage.getItem("currentAccount") || "";
-    if (storageAccount) {
-      setAccounts([storageAccount]);
-    }
-  }, []);
+  const value = { accounts, setAccounts };
+
   return (
-    <div className="App">
-      <Navbar accounts={accounts} setAccounts={setAccounts} />
-      <MainMint accounts={accounts} setAccounts={setAccounts} />
-    </div>
+    <UserContext.Provider value={value}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Main />}></Route>
+          <Route path="/battle" element={<Battle />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </UserContext.Provider>
   );
 }
 

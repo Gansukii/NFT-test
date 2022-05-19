@@ -1,7 +1,18 @@
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "../data/userContext";
 
-const Navbar = ({ accounts, setAccounts }) => {
+const Navbar = () => {
+  const { accounts, setAccounts } = useContext(UserContext);
   const isConnected = Boolean(accounts[0]);
+  console.log(accounts);
+
+  useEffect(() => {
+    const storageAccount = localStorage.getItem("currentAccount") || "";
+    if (storageAccount) {
+      setAccounts([storageAccount]);
+    }
+  }, []);
 
   async function connectAccount() {
     if (window.ethereum) {
