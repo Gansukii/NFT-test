@@ -1,0 +1,16 @@
+{
+  "attributes": [
+    {
+      "trait_type": "Eye",
+      "value": "Sharingan"
+    },
+    {
+      "trait_type": "Strength",
+      "value": 120
+    }
+  ],
+  "description": "Sharingan!",
+  "image": "https://ipfs.io/ipfs/QmNUnQGKCcyhdbepgn4YUCR1VKUQN4Y4vqrdbCRifSknHX",
+  "name": "Itachi",
+  "attack": 120
+}

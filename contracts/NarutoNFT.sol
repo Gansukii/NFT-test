@@ -54,7 +54,7 @@ contract NarutoNFT is ERC721, Ownable {
 
         return newItemId;
     }
-
+ 
     function deleteBoss() public onlyOwner {
         bossHP = 0;
         currentBossTokenURI = "";

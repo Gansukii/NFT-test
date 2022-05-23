@@ -11,7 +11,7 @@ const pinFileToIPFS = async () => {
   const pinataApiKey = process.env.PINATA_API_KEY;
   const pinataApiSecret = process.env.PINATA_API_SECRET;
   const form_data = new FormData();
-  const filePath = path.join(__dirname, "../data/metadata3.json");
+  const filePath = path.join(__dirname, "../data/metadataboss1.json");
   try {
     form_data.append("file", fs.createReadStream(filePath));
     const request = {

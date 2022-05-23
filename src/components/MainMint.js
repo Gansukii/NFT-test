@@ -5,12 +5,11 @@ import characters from "../data/characters.json";
 import Mintables from "../components/Mintables";
 
 const MainMint = ({ accounts, setAccounts }) => {
-  const [charactersArr, setCharactersArr] = useState([]);
   const [accountWalletMints, setAccountWalletMints] = useState([]);
   const isConnected = Boolean(accounts[0]);
 
   useEffect(() => {
-    setCharactersArr([characters]);
+    // setCharactersArr([characters]);
     async function getMints() {
       const walletMints = await contract.getWalletMints(accounts[0]);
       setAccountWalletMints(walletMints);

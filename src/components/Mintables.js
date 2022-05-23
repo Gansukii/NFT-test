@@ -1,14 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { ethers } from "ethers";
 import narutoNft from "../NarutoNFT.json";
+import { contract } from "../data/contractProvider";
 
-const Mintables = ({ character, accounts, accountWalletMints }) => {
+const Mintables = ({ character, accountWalletMints }) => {
   const { metadataURI, image, name } = character;
   const [isProcessing, setIsProcessing] = useState(false);
-  const narutoNFTAddress = "0x3cBa7C9A26d09E08f693a402C5398D9a89D2a662";
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const signer = provider.getSigner();
-  const contract = new ethers.Contract(narutoNFTAddress, narutoNft.abi, signer);
   let isOwned = accountWalletMints.includes(metadataURI);
 
   async function handleMint() {

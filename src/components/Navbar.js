@@ -35,7 +35,7 @@ const Navbar = () => {
       <div>Home</div>
       <div>About</div>
       <div>
-        <Link to="./Battle">Battle</Link>
+        <Link to="./battle">Battle</Link>
       </div>
 
       {isConnected ? (
