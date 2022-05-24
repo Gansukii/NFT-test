@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 
 import { contract } from "../data/contractProvider";
 import characters from "../data/characters.json";
 import Mintables from "../components/Mintables";
+import UserContext from "../data/userContext";
 
-const MainMint = ({ accounts, setAccounts }) => {
+// const MainMint = ({ accounts, setAccounts }) => {
+const MainMint = () => {
+  const { accounts, setAccounts } = useContext(UserContext);
   const [accountWalletMints, setAccountWalletMints] = useState([]);
   const isConnected = Boolean(accounts[0]);
 

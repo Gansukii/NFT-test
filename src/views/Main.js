@@ -7,7 +7,7 @@ const Main = () => {
   return (
     <div>
       <Navbar />
-      <MainMint accounts={accounts} setAccounts={setAccounts} />
+      <MainMint />
     </div>
   );
 };

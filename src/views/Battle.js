@@ -8,6 +8,7 @@ const Battle = () => {
   const { accounts, setAccounts } = useContext(UserContext);
   const [walletNFTs, setWalletNFTs] = useState([]);
   const [bossData, setBossData] = useState({});
+  const [bossHP, setBossHP] = useState();
 
   useEffect(() => {
     const storageAccount = localStorage.getItem("currentAccount") || "";
@@ -18,8 +19,9 @@ const Battle = () => {
     async function getBoss() {
       const bossURI = await contract.getBossURI();
       const bossData = await axios(`https://ipfs.io/ipfs/${bossURI}`);
-      const bossHP = await contract.bossHP();
-      bossData.data.bossHP = parseInt(bossHP._hex, 16);
+      const currentBossHP = await contract.bossHP();
+      setBossHP(parseInt(currentBossHP._hex, 16));
+      // bossData.data.bossHP = parseInt(currentBossHP._hex, 16);
       setBossData(bossData.data);
     }
     async function getMints() {
@@ -44,15 +46,17 @@ const Battle = () => {
   return (
     <div>
       {walletNFTs.length > 0 ? (
-        walletNFTs.map((item) => <BattleCard key={item.image} character={item} />)
+        walletNFTs.map((item) => <BattleCard key={item.image} character={item} setBossHP={setBossHP} />)
       ) : (
         <div> You have no existing NFT. Mint first before proceeding to battle!</div>
       )}
 
-      {Object.keys(bossData).length > 0 && (
+      {Object.keys(bossData).length > 0 ? (
         <div>
-          {bossData.name}|{bossData.bossHP} |{bossData.attack}
+          {bossData.name}|{bossHP} |{bossData.attack}
         </div>
+      ) : (
+        <div>No current Boss</div>
       )}
     </div>
   );

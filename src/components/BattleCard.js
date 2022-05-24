@@ -1,21 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { contract } from "../data/contractProvider";
 
 // const BattleCard = () => {
-const BattleCard = ({ character }) => {
+const BattleCard = ({ character, setBossHP }) => {
   const { name, description, attack } = character;
+  const [isLoading, setIsLoading] = useState(false);
   const minimumDamage = 60;
-  let isLoading = false;
 
   const handleAttack = () => {
     if (isLoading) return;
 
-    isLoading = true;
+    setIsLoading(true);
     async function attackBoss() {
       const damage = attack | minimumDamage;
       const response = await contract.attack(damage);
-      console.log(response);
-      isLoading = false;
+      const receipt = await response.wait();
+      setBossHP(parseInt(receipt.events[0].args.currentBossHP._hex, 16));
+      setIsLoading(false);
     }
     attackBoss();
   };

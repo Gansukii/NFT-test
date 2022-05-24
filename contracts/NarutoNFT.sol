@@ -26,6 +26,8 @@ contract NarutoNFT is ERC721, Ownable {
     uint256 public bossHP;
     string public currentBossTokenURI;
 
+    event attackSuccess(address sender, uint256 currentBossHP);
+
     constructor() payable ERC721("NarutoNFT", "Nar") {
         mintPrice = 0.002 ether;
         totalSupply = 50;
@@ -54,7 +56,7 @@ contract NarutoNFT is ERC721, Ownable {
 
         return newItemId;
     }
- 
+
     function deleteBoss() public onlyOwner {
         bossHP = 0;
         currentBossTokenURI = "";
@@ -70,6 +72,7 @@ contract NarutoNFT is ERC721, Ownable {
         if (bossHP <= 0) {
             currentBossTokenURI = "";
         }
+        emit attackSuccess(msg.sender, bossHP);
     }
 
     function setIsPublicMintEnabled(bool _isPublicMintEnabled)
