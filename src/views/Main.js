@@ -6,7 +6,7 @@ const Main = () => {
 
   return (
     <div>
-      <Navbar />
+      <Navbar active="mint" />
       <MainMint />
     </div>
   );

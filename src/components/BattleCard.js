@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { contract } from "../data/contractProvider";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHandFist, faHeart } from "@fortawesome/free-solid-svg-icons";
 
 // const BattleCard = () => {
 const BattleCard = ({ character, setBossHP }) => {
-  const { name, description, attack } = character;
+  const { name, description, attack, image, attributes } = character;
+  const characterHP = attributes.filter((attribute) => attribute.trait_type === "HP")[0].value;
+
   const [isLoading, setIsLoading] = useState(false);
   const minimumDamage = 60;
 
@@ -22,11 +26,19 @@ const BattleCard = ({ character, setBossHP }) => {
   };
 
   return (
-    <div>
-      <div>{name}</div>
-      <div>{description}</div>
-      <div>{attack | 60}</div>
-      <button onClick={handleAttack} disabled={isLoading}>
+    <div className="mintCard">
+      <div className="battleName">{name}</div>
+      <div>
+        <img src={image} className="mintableImage"></img>
+      </div>
+      <div className="mintData description">{description}</div>
+      <div className="mintData">
+        <FontAwesomeIcon icon={faHandFist} /> {attack | 60}
+      </div>
+      <div className="mintData">
+        <FontAwesomeIcon icon={faHeart} /> {characterHP}
+      </div>
+      <button className="btnAttack" onClick={handleAttack} disabled={isLoading}>
         Attack!
       </button>
     </div>

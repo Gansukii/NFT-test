@@ -3,6 +3,10 @@ import UserContext from "../data/userContext";
 import { contract } from "../data/contractProvider";
 import axios from "axios";
 import BattleCard from "../components/BattleCard";
+import { Navbar } from "../components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHandFist, faHeart, faSwords } from "@fortawesome/free-solid-svg-icons";
+import sword from "./sword.png";
 
 const Battle = () => {
   const { accounts, setAccounts } = useContext(UserContext);
@@ -39,26 +43,46 @@ const Battle = () => {
     }
   }, [accounts[0]]);
 
-  // useEffect(() => {
-  //   console.log(walletNFTs);
-  // }, [walletNFTs]);
+  useEffect(() => {
+    console.log(bossData);
+  }, [bossData]);
 
   return (
-    <div>
-      {walletNFTs.length > 0 ? (
-        walletNFTs.map((item) => <BattleCard key={item.image} character={item} setBossHP={setBossHP} />)
-      ) : (
-        <div> You have no existing NFT. Mint first before proceeding to battle!</div>
-      )}
+    <>
+      <Navbar active="battle" />
+      <div className="mainBattle">
+        <div className="txtMain">Attack the boss!</div>
 
-      {Object.keys(bossData).length > 0 ? (
-        <div>
-          {bossData.name}|{bossHP} |{bossData.attack}
+        <div className="battlePaper">
+          {walletNFTs.length > 0 ? (
+            walletNFTs.map((item) => <BattleCard key={item.image} character={item} setBossHP={setBossHP} />)
+          ) : (
+            <div className="noNftText"> You have no existing NFT. Mint first before proceeding to battle!</div>
+          )}
+
+          <div className="swordContainer">
+            <img className="swordImg" src={sword} alt="sword image"></img>
+          </div>
+
+          {Object.keys(bossData).length > 0 ? (
+            <div className="bossCard">
+              <div className="battleName">{bossData.name}</div>
+              <div>
+                <img src={bossData.image} className="mintableImage"></img>
+              </div>
+              <div className="mintData bossData">
+                <FontAwesomeIcon icon={faHandFist} /> {bossData.attack}
+              </div>
+              <div className="mintData">
+                <FontAwesomeIcon icon={faHeart} /> {bossHP}
+              </div>
+            </div>
+          ) : (
+            <div className="noNftText">No current Boss</div>
+          )}
         </div>
-      ) : (
-        <div>No current Boss</div>
-      )}
-    </div>
+      </div>
+    </>
   );
 };
 

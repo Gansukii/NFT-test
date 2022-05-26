@@ -26,13 +26,13 @@ const Mintables = ({ character, accountWalletMints }) => {
     }
   }
   return (
-    <div>
+    <div className="card">
+      <div className="mintableName">{name}</div>
       <div>
-        <b>{name}</b>
-        <a href={metadataURI}>{metadataURI}</a>
+        <img src={image} className="mintableImage"></img>
       </div>
-      <div>
-        <button disabled={isProcessing} onClick={handleMint}>
+      <div className="btnContainer">
+        <button className="btnMint" disabled={isProcessing | isOwned} onClick={handleMint}>
           {isOwned ? "Owned!" : "Mint!"}
         </button>
       </div>

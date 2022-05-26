@@ -23,17 +23,18 @@ const MainMint = () => {
   }, [accounts]);
 
   return (
-    <div>
-      <div>Sample NFT</div>
-      {isConnected ? (
-        characters.map((character) => (
-          <div key={character.image}>
-            <Mintables character={character} accounts={accounts} accountWalletMints={accountWalletMints} />
-          </div>
-        ))
-      ) : (
-        <div>You need to log in first.</div>
-      )}
+    <div className="main">
+      <div className="txtMain">Start minting Naruto NFT!</div>
+
+      <div className="mintMain">
+        {isConnected ? (
+          characters.map((character) => (
+            <Mintables key={character.image} character={character} accounts={accounts} accountWalletMints={accountWalletMints} />
+          ))
+        ) : (
+          <div>You need to log in first.</div>
+        )}
+      </div>
     </div>
   );
 };
