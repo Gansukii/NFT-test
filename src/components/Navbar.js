@@ -53,7 +53,7 @@ const Navbar = ({ active }) => {
             </button>
           </div>
         ) : (
-          <button className="navItem" onClick={connectAccount}>
+          <button className="navItem btnConnect" onClick={connectAccount}>
             connect to account (Rinkeby)
           </button>
         )}

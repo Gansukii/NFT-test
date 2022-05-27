@@ -43,9 +43,9 @@ const Battle = () => {
     }
   }, [accounts[0]]);
 
-  useEffect(() => {
-    console.log(bossData);
-  }, [bossData]);
+  // useEffect(() => {
+  //   console.log(bossData);
+  // }, [bossData]);
 
   return (
     <>
